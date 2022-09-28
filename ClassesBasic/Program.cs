@@ -1,4 +1,3 @@
-﻿using System.Security.Cryptography.X509Certificates;
 using System.Collections.Generic;
 
 Console.WriteLine("Do you want to add a team? (type in 'yes' if you do)");
@@ -98,6 +97,7 @@ class Team
                 Console.WriteLine($"{employees[i].Name} - {employees[i].Position} - {employees[i].WorkDay}\n");
         }
     }
+
 
 
 
