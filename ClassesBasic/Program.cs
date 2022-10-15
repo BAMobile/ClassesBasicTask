@@ -8,18 +8,12 @@ if (Console.ReadLine() == "yes")
     if (Console.ReadLine() == "yes")
     {
         Developer developer1 = new Developer();
-        Console.WriteLine("Type in developer's workday");
-        developer1.WorkDay=Console.ReadLine();
         team1.AddEmployee(developer1);
 
         Developer developer2 = new Developer();
-        Console.WriteLine("Type in developer's workday");
-        developer2.WorkDay = Console.ReadLine();
         team1.AddEmployee(developer2);
 
         Manager manager1 = new Manager();
-        Console.WriteLine("Type in manager's workday");
-        manager1.WorkDay = Console.ReadLine();
         team1.AddEmployee(manager1);
 
         team1.DisplayTeamData();
@@ -38,9 +32,9 @@ abstract class Worker
         Console.WriteLine("Type in worker's name");
         this.Name = Console.ReadLine();
     }
-    protected void Call() { }
-    protected void WriteCode() { }
-    protected void Relax() { }
+    protected void Call() { Console.WriteLine("Calling...\n"); }
+    protected void WriteCode() { Console.WriteLine("Writing code...\n"); }
+    protected void Relax() { Console.WriteLine("Relaxing...\n"); }
     public abstract void FillWorkDay();
 }
 
@@ -86,18 +80,18 @@ class Team
         employees.Add(worker);
     }
     public void DisplayTeamData() {
-        Console.WriteLine(this.Name);
+        Console.WriteLine($"The name of a team is {this.Name}");
+        Console.WriteLine("Team members: ");
         for (int i = 0; i < employees.Count; i++)
-            Console.WriteLine($"{employees[i].Name}\n");
+            Console.WriteLine($"{employees[i].Name}");
         }
     public void DisplayDetailedData()
         {
-            Console.WriteLine(this.Name);
-            for (int i = 0; i < employees.Count; i++)
-                Console.WriteLine($"{employees[i].Name} - {employees[i].Position} - {employees[i].WorkDay}\n");
+        Console.WriteLine($"Detailed team {this.Name} data:");
+        for (int i = 0; i < employees.Count; i++)
+        {
+            Console.WriteLine($"{employees[i].Name} - {employees[i].Position}\n");
+            employees[i].FillWorkDay();
+        }
         }
     }
-
-
-
-
